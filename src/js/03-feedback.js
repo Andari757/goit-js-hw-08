@@ -5,11 +5,11 @@ const data = {
 };
 
 const form = document.querySelector(".feedback-form")
-form.addEventListener("input", (e) => {       
+form.addEventListener("input", _.throttle((e) => {       
         if (e.target.type === "email") { data.email = e.target.value }
         if (e.target.type === "textarea") {data.textArea = e.target.value}           
-    localStorage.setItem("feedback-form-state", JSON.stringify(data))        
-})
+    localStorage.setItem("feedback-form-state", JSON.stringify(data))       
+},500))
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(data)
