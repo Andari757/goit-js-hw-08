@@ -16,4 +16,4 @@ var n,t=arguments[3],r=require("buffer").Buffer;(function(){var r,e=200,u="Unsup
 },{"buffer":"dskh"}],"TTyb":[function(require,module,exports) {
 var e=require("lodash");const t={email:"",textArea:""},a=document.querySelector(".feedback-form");a.addEventListener("input",e.throttle(e=>{"email"===e.target.type&&(t.email=e.target.value),"textarea"===e.target.type&&(t.textArea=e.target.value),localStorage.setItem("feedback-form-state",JSON.stringify(t))},500)),a.addEventListener("submit",e=>{e.preventDefault(),console.log(t),a.reset(),localStorage.clear()}),localStorage.getItem("feedback-form-state")&&(a[0].value=JSON.parse(localStorage.getItem("feedback-form-state")).email,a[1].value=JSON.parse(localStorage.getItem("feedback-form-state")).textArea);
 },{"lodash":"B1iE"}]},{},["TTyb"], null)
-//# sourceMappingURL=/parcel-project-template/03-feedback.bc2600bc.js.map
+//# sourceMappingURL=/goit-js-hw-08/03-feedback.bc2600bc.js.map
