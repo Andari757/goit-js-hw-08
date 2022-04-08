@@ -1,4 +1,5 @@
-var _ = require('lodash');
+var throttle = require('lodash.throttle');
+const savedData = localStorage.getItem("feedback-form-state") 
 const data = {
     email: "",
     textArea: ""
@@ -9,7 +10,7 @@ const containItems = function () {
 }
 
 const form = document.querySelector(".feedback-form")
-form.addEventListener("input", _.throttle(() => {    
+form.addEventListener("input", throttle(() => {    
     containItems();
     localStorage.setItem("feedback-form-state", JSON.stringify(data))       
 },500))
@@ -19,8 +20,8 @@ form.addEventListener("submit", (e) => {
     form.reset()
     localStorage.clear()
 })
-if (localStorage.getItem("feedback-form-state")) {   
-    form[0].value = JSON.parse(localStorage.getItem("feedback-form-state")).email
-    form[1].value = JSON.parse(localStorage.getItem("feedback-form-state")).textArea
+if (savedData) {   
+    form[0].value = JSON.parse(savedData).email
+    form[1].value = JSON.parse(savedData).textArea
 }
 containItems();

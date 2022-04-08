@@ -1,8 +1,11 @@
-var _ = require('lodash.throttle');
- const iframe = document.querySelector('iframe');
-    const player = new Vimeo.Player(iframe);
+var throttle = require('lodash.throttle');
 
-player.on('timeupdate', _.throttle((data) => {
+ const iframe = document.querySelector('iframe');
+const player = new Vimeo.Player(iframe);
+    
+
+
+player.on('timeupdate', throttle((data) => {
     localStorage.setItem("videoplayer-current-time", data.seconds);
     console.log(data)    
 }, 1000) );
