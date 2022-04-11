@@ -1,4 +1,5 @@
-var throttle = require('lodash.throttle');
+
+import throttle from "lodash.throttle";
 const savedData = localStorage.getItem("feedback-form-state") 
 const data = {
     email: "",
